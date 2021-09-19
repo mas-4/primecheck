@@ -3,13 +3,16 @@ from math import prod
 
 
 def erasthones(n: int) -> np.ndarray:
-    """Returns all primes less than n"""
+    """Returns all primes less than n
+    >>> erasthones(5)
+    array([2, 3, 5])
+    """
     flags = np.ones(n, dtype=bool)
     flags[0] = flags[1] = False
     lim = int(n**0.5)
     for i in range(2,lim):
         if flags[i]:
-            flags[i*i::i] == False
+            flags[i*i::i] = False
     return np.flatnonzero(flags)
 
 
