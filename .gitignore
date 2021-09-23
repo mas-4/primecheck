@@ -9,7 +9,8 @@ __pycache__/
 *$py.class
 
 # C extensions
-*.so
+*.a
+*.o
 
 # Distribution / packaging
 .Python
