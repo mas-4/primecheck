@@ -23,16 +23,16 @@ def isprime(n: int) -> bool:
 
 def erat(n: int) -> List[int]:
     """Sieve of Eratosthones: produces a list of prime numbers from 1 to n."""
-    # Marshal the return type as an array of length n+1
     ptr = lib.erat(n)
+    # Marshal the return type as an array of length n+1
     output = cast(ptr, POINTER(c_byte*(n+1)))
     result = [n for n, i in enumerate(output.contents) if i==1]
-    lib.free_sieve(output)
+    # Free the pointer
+    lib.free_sieve(ptr)
     return result
 
 
-
-def π(n: int) -> int:
+def pi(n: int) -> int:
     """Prime counting function for n"""
     return len(erat(n))
 
