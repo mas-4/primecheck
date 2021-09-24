@@ -26,13 +26,15 @@ char* erat(int n) {
   sieve[0] = sieve[1] = 0;
   sieve[2] = 1;
   /* For every i>=2, if it is prime, mark every multiple of it as not prime. */
-  /*
   for (int i=2; i<=m; i++)
     if (sieve[i]==1)
       for (int j=2*i; j<=n; j+=i)
         sieve[j] = 0;
-  */
   return sieve;
+}
+
+void free_sieve(char* sieve) {
+  free(sieve);
 }
 
 int main() {
